@@ -1,0 +1,177 @@
+<!doctype html>
+<!--
+  Kintra privacy policy. Static page: host it anywhere free (GitHub Pages from a public repo, Netlify Drop,
+  Cloudflare Pages) and put its URL into EXPO_PUBLIC_PRIVACY_URL and the Play Console.
+  Before publishing: fill in every [KÖŞELİ PARANTEZ] / [BRACKET] and have the text checked (KVKK / GDPR).
+  Facts here must match the code: retention = purge_expired_data() in 003_security_hardening.sql,
+  intervals = src/background/trackingOptions.ts, providers = package.json + supabase/functions.
+-->
+<html lang="tr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Kintra – Gizlilik Politikası / Privacy Policy</title>
+<style>
+  :root { --bg: #FFF9F5; --card: #FFFFFF; --text: #0F1E3D; --muted: #6B7385; --primary: #2F6BB3; --line: #EFE6DE; }
+  @media (prefers-color-scheme: dark) { :root { --bg: #0E1626; --card: #16213A; --text: #EEF2F8; --muted: #A9B3C5; --primary: #8DB6E8; --line: #26324D; } }
+  body { margin: 0; background: var(--bg); color: var(--text); font: 16px/1.6 system-ui, -apple-system, "Segoe UI", Roboto, sans-serif; }
+  main { max-width: 760px; margin: 0 auto; padding: 24px 16px 64px; }
+  nav { display: flex; gap: 12px; margin-bottom: 8px; }
+  nav a { color: var(--primary); font-weight: 600; }
+  section { background: var(--card); border: 1px solid var(--line); border-radius: 18px; padding: 8px 20px 16px; margin-top: 16px; }
+  h1 { font-size: 28px; margin: 8px 0 0; }
+  h2 { font-size: 19px; margin-top: 24px; }
+  table { width: 100%; border-collapse: collapse; font-size: 15px; }
+  td, th { text-align: left; padding: 6px 8px 6px 0; border-bottom: 1px solid var(--line); vertical-align: top; }
+  .muted { color: var(--muted); }
+  a { color: var(--primary); overflow-wrap: anywhere; }
+</style>
+</head>
+<body>
+<main>
+<nav><a href="#tr">Türkçe</a><a href="#en">English</a></nav>
+
+<section id="tr" lang="tr">
+<h1>Kintra Gizlilik Politikası</h1>
+<p class="muted">Yürürlük tarihi: 17.11.2026</p>
+
+<h2>1. Veri sorumlusu</h2>
+<p>Kintra, iletişim: fatal3rrorr@gmail.com. Bu politika, Kintra aile konum uygulamasının (Android paket adı
+<code>com.kintra.familytracker</code>) hangi kişisel verileri neden işlediğini açıklar
+(6698 sayılı KVKK ve AB Genel Veri Koruma Tüzüğü, GDPR).</p>
+
+<h2>2. Hangi verileri işliyoruz</h2>
+<table>
+<tr><th>Veri</th><th>Neden</th></tr>
+<tr><td><b>Anonim hesap kimliği</b>, görünen ad, avatar rengi</td><td>Ailenizin sizi tanıması. E-posta, telefon numarası veya şifre istenmez.</td></tr>
+<tr><td><b>Konum</b>: enlem/boylam, doğruluk, pil seviyesi, hareket ediyor/duruyor bilgisi</td><td>Aile haritasında yerinizi göstermek. Yalnızca <b>son konum</b> tutulur; konum geçmişi tutulmaz.</td></tr>
+<tr><td><b>Arka planda konum</b></td><td>Uygulama kapalıyken de ailenizin sizi görebilmesi. Android'de yaklaşık 5 dakikada bir okunur; telefon hareketsizse en fazla 15 dakikada bir gönderilir. iOS'ta yaklaşık 200 metrelik hareketlerde gönderilir. Ayarlar'dan "Konum paylaşımı" kapatılabilir.</td></tr>
+<tr><td><b>Kayıp modu</b> ve bulana mesaj</td><td>Kendi telefonunuzu ailenize kayıp olarak göstermek (siz açarsanız).</td></tr>
+<tr><td><b>Aile bilgileri</b>: aile adı, üyelikler, yönetici, katılma istekleri, davet kodları (yalnızca özetleri/hash)</td><td>Aile çemberini kurmak ve yeni üyeleri yöneticinin onayıyla eklemek.</td></tr>
+<tr><td><b>Katılma denemeleri</b></td><td>Davet kodu tahmin etmeye karşı koruma (deneme sayısı sınırı).</td></tr>
+<tr><td><b>Çaldırma ve SOS kayıtları</b>: kimden, kime, ne zaman, görüldü mü</td><td>Telefonu çaldırmak ve acil durum uyarısını ailenize iletmek.</td></tr>
+<tr><td><b>Bildirim anahtarı</b> (push token), uygulama dili, cihaz doğrulama anahtarının özeti</td><td>Uygulama kapalıyken çaldırma/SOS bildirimi göndermek.</td></tr>
+</table>
+<p><b>Toplamadıklarımız:</b> reklam kimliği, analiz veya izleme araçları, rehber, fotoğraf, mikrofon, konum geçmişi.
+Verileriniz satılmaz, reklam için kullanılmaz.</p>
+
+<h2>3. Verilerinizi kimler görür</h2>
+<p>Konumunuzu, pil seviyenizi ve kayıp modunuzu yalnızca <b>aynı ailede olduğunuz kişiler</b> görür.
+Bu, veritabanı düzeyinde erişim kurallarıyla (Row Level Security) zorunlu tutulur.
+Bir aileden ayrıldığınızda veya çıkarıldığınızda o ailenin üyeleri konumunuzu artık göremez.</p>
+
+<h2>4. Hizmet sağlayıcılar ve yurt dışına aktarım</h2>
+<ul>
+<li><b>Supabase</b> (veritabanı ve sunucu): veriler <b>Almanya, Frankfurt</b> (AB) bölgesinde saklanır.</li>
+<li><b>Expo</b> push hizmeti ile <b>Google Firebase Cloud Messaging</b> / <b>Apple Push Notification</b>: yalnızca bildirimi iletmek için bildirim anahtarı, gönderenin görünen adı ve kısa bildirim metni.</li>
+<li><b>OpenStreetMap</b> harita karoları: harita gösterilirken cihazınızın IP adresi harita sunucusuna ulaşır (konumunuz gönderilmez, yalnızca görüntülenen harita parçaları istenir).</li>
+</ul>
+<p>Bu sağlayıcıların sunucuları Türkiye dışındadır. Aktarım, hizmetin sunulması için gereklidir ve KVKK md. 9 ile
+GDPR'a uygun güvencelere dayanır. [HUKUKİ DAYANAK / AÇIK RIZA METNİ – HUKUKÇUYA KONTROL ETTİRİN]</p>
+
+<h2>5. Saklama süreleri</h2>
+<table>
+<tr><td>Son konum</td><td>30 gün güncellenmezse silinir</td></tr>
+<tr><td>Çaldırma / SOS kayıtları</td><td>7 gün</td></tr>
+<tr><td>Katılma denemeleri</td><td>2 gün</td></tr>
+<tr><td>Katılma istekleri</td><td>bekleyen: 7 gün; sonuçlanan: 30 gün</td></tr>
+<tr><td>Süresi dolmuş / iptal edilmiş davetler</td><td>7 gün</td></tr>
+<tr><td>Bildirim anahtarları</td><td>90 gün kullanılmazsa</td></tr>
+<tr><td>Hesap, ad, üyelikler</td><td>hesabı silene kadar</td></tr>
+</table>
+
+<h2>6. Hesap ve veri silme</h2>
+<p>Uygulamada <b>Ayarlar → Hesabı sil</b> ile hesabınız ve size ait tüm veriler (konum, üyelikler, istekler,
+çaldırma kayıtları, bildirim anahtarları) sunucudan hemen silinir. Yöneticisi olduğunuz bir ailede başka üye varsa
+yöneticilik otomatik olarak başka bir üyeye geçer. Hesap anonim olduğu için uygulamayı silmek hesabınızı kurtarılamaz
+hâle getirir; sunucudaki verileri silmek için önce "Hesabı sil"i kullanın.</p>
+
+<h2>7. Haklarınız</h2>
+<p>KVKK md. 11 ve GDPR kapsamında verilerinize erişme, düzeltme, silme, işlemeyi kısıtlama ve itiraz haklarınız vardır.
+Talepleriniz için: fatal3rrorr@gmail.com. Kişisel Verileri Koruma Kurumu'na şikâyette bulunabilirsiniz.</p>
+
+<h2>8. Çocuklar</h2>
+<p>Kintra aileler içindir. Çocuklar uygulamayı ebeveyn veya vasilerinin bilgisi ve gözetimiyle kullanmalıdır.
+[YAŞ SINIRI VE EBEVEYN ONAYI – HUKUKÇUYA KONTROL ETTİRİN]</p>
+
+<h2>9. Güvenlik</h2>
+<p>Tüm bağlantılar şifrelidir (HTTPS/TLS). Davet kodları ve cihaz anahtarları yalnızca özet (hash) olarak saklanır;
+davet kodları süreli ve deneme sayısı sınırlıdır.</p>
+
+<h2>10. Değişiklikler</h2>
+<p>Bu politika değişirse güncel sürüm bu sayfada yayınlanır ve yürürlük tarihi güncellenir.</p>
+</section>
+
+<section id="en" lang="en">
+<h1>Kintra Privacy Policy</h1>
+<p class="muted">Effective date: 2026-11-17</p>
+
+<h2>1. Controller</h2>
+<p>Kintra, contact: fatal3rrorr@gmail.com. This policy explains which personal data the Kintra family location app
+(Android package <code>com.kintra.familytracker</code>) processes and why (Turkish KVKK and EU GDPR).</p>
+
+<h2>2. Data we process</h2>
+<table>
+<tr><th>Data</th><th>Purpose</th></tr>
+<tr><td><b>Anonymous account ID</b>, display name, avatar colour</td><td>So your family recognises you. No email, phone number or password is required.</td></tr>
+<tr><td><b>Location</b>: latitude/longitude, accuracy, battery level, moving/still</td><td>Showing you on your family's map. Only your <b>latest location</b> is kept; no location history.</td></tr>
+<tr><td><b>Background location</b></td><td>So your family can see you while the app is closed. On Android it is read about every 5 minutes and sent at least every 15 minutes when the phone is still; on iOS after about 200 m of movement. You can turn "Location sharing" off in Settings.</td></tr>
+<tr><td><b>Lost mode</b> and finder message</td><td>Marking your own phone as lost for your family (only if you turn it on).</td></tr>
+<tr><td><b>Family data</b>: family name, memberships, admin, join requests, invite codes (stored only as hashes)</td><td>Running the family circle; new members join only with the admin's approval.</td></tr>
+<tr><td><b>Join attempts</b></td><td>Protection against guessing invite codes (attempt limits).</td></tr>
+<tr><td><b>Ring and SOS records</b>: from, to, when, acknowledged</td><td>Ringing a phone and alerting your family in an emergency.</td></tr>
+<tr><td><b>Push token</b>, app language, hash of a device verification key</td><td>Delivering ring/SOS notifications while the app is closed.</td></tr>
+</table>
+<p><b>Not collected:</b> advertising ID, analytics or tracking tools, contacts, photos, microphone, location history.
+Your data is never sold or used for advertising.</p>
+
+<h2>3. Who can see your data</h2>
+<p>Only <b>members of the families you belong to</b> can see your location, battery level and lost mode. This is
+enforced by database access rules (Row Level Security). When you leave or are removed from a family, its members can
+no longer see your location.</p>
+
+<h2>4. Service providers and international transfers</h2>
+<ul>
+<li><b>Supabase</b> (database and server): data is stored in <b>Frankfurt, Germany</b> (EU).</li>
+<li><b>Expo</b> push service with <b>Google Firebase Cloud Messaging</b> / <b>Apple Push Notification service</b>: only the push token, the sender's display name and a short notification text, to deliver the notification.</li>
+<li><b>OpenStreetMap</b> map tiles: when a map is shown, your device's IP address reaches the tile server (your location is not sent; only the visible map tiles are requested).</li>
+</ul>
+<p>These servers are outside Türkiye. The transfer is necessary to provide the service and relies on safeguards
+under KVKK Art. 9 and the GDPR. [LEGAL BASIS / CONSENT TEXT – HAVE A LAWYER CHECK]</p>
+
+<h2>5. Retention</h2>
+<table>
+<tr><td>Latest location</td><td>deleted after 30 days without an update</td></tr>
+<tr><td>Ring / SOS records</td><td>7 days</td></tr>
+<tr><td>Join attempts</td><td>2 days</td></tr>
+<tr><td>Join requests</td><td>pending: 7 days; decided: 30 days</td></tr>
+<tr><td>Expired / revoked invites</td><td>7 days</td></tr>
+<tr><td>Push tokens</td><td>after 90 days without use</td></tr>
+<tr><td>Account, name, memberships</td><td>until you delete your account</td></tr>
+</table>
+
+<h2>6. Deleting your account and data</h2>
+<p>In the app, <b>Settings → Delete account</b> immediately deletes your account and all data linked to it (location,
+memberships, requests, ring records, push tokens) from the server. If you are the admin of a family with other
+members, the admin role passes to another member. Because the account is anonymous, uninstalling the app makes it
+unrecoverable; use "Delete account" first to remove your data from the server.</p>
+
+<h2>7. Your rights</h2>
+<p>Under KVKK Art. 11 and the GDPR you may access, correct, delete, restrict or object to the processing of your
+data. Requests: fatal3rrorr@gmail.com. You may also complain to the Turkish Personal Data Protection Authority or your local EU
+supervisory authority.</p>
+
+<h2>8. Children</h2>
+<p>Kintra is made for families. Children should use it with the knowledge and supervision of a parent or guardian.
+[AGE LIMIT AND PARENTAL CONSENT – HAVE A LAWYER CHECK]</p>
+
+<h2>9. Security</h2>
+<p>All connections are encrypted (HTTPS/TLS). Invite codes and device keys are stored only as hashes; invite codes
+expire and have attempt limits.</p>
+
+<h2>10. Changes</h2>
+<p>If this policy changes, the current version is published on this page with a new effective date.</p>
+</section>
+</main>
+</body>
+</html>
